@@ -4,8 +4,8 @@
 - [x] Test project home page
 - [ ] Craete a dashboard page
   - Show user's all todo list
-  - [ ] create and rigister a template folder
-  - [ ] create `base.html` and `index.html`
+  - [x] create and rigister a template folder
+  - [x] create `base.html` and `index.html`
   - [ ] `views.py` in todo_awesome
   - [ ] `def dashboard(request)->response`
   - [ ] `path('', views.dashboard, name='dashboard')`
