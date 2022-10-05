@@ -1,0 +1,10 @@
+- [x] Create mysite `todo_awesome`
+- [ ] Create todo app
+- [ ] Craete a dashboard page
+  - Show user's all todo list
+  - [ ] `path('', views.dashboard, name='dashboard')`
+  - [ ] 
+- [ ] Startapp `todo`
+  - [ ] design `todo/models.py`
+  - [ ] build some simple text view
+    - [ ] `path('todo/list/<int:list_id>', views.list, name='list')`
