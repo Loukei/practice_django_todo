@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import dashboard
+from .views import DashboardView
 
 urlpatterns = [
     # ex: http://127.0.0.1:8000/
-    path('', dashboard, name="dashboard"),
+    path('', DashboardView.as_view(), name="dashboard"),
     path('todo/', include('todo.urls')),
     path('admin/', admin.site.urls),
 ]
