@@ -6,9 +6,9 @@
   - Show user's all todo list
   - [x] create and rigister a template folder
   - [x] create `base.html` and `index.html`
-  - [ ] `views.py` in todo_awesome
-  - [ ] `def dashboard(request)->response`
-  - [ ] `path('', views.dashboard, name='dashboard')`
+  - [x] craete `views.py` in todo_awesome
+  - [x] `def dashboard(request)->response`
+  - [x] `path('', views.dashboard, name='dashboard')`
 - [ ] Startapp `todo`
   - [ ] design `todo/models.py`
   - [ ] build some simple text view
