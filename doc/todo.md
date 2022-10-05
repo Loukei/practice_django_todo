@@ -7,11 +7,15 @@
   - [x] create and rigister a template folder
   - [x] create `base.html` and `index.html`
   - [x] craete `views.py` in todo_awesome
-  - [x] `def dashboard(request)->response`
-  - [x] `path('', views.dashboard, name='dashboard')`
+  - [ ] `class DashboardView`
+  - [ ] modify `dashboard.html`
+  - [x] `path('', DashboardView.as_view(), name="dashboard")`
+  ~~- [x] `def dashboard(request)->response`~~
+  ~~- [x] `path('', views.dashboard, name='dashboard')`~~
 - [ ] Startapp `todo`
   - [x] add `todo/urls.py` to `urls.py`
   - [ ] design `todo/models.py`
-  - [x] register todo, todolist model to admins
+    - [ ] Todolist with user foreign key
+  - [x] register todo, todolist model to admin
   - [ ] build some simple text view
     - [ ] `path('todo/list/<int:list_id>', views.list, name='list')`
