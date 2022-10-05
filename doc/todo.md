@@ -10,6 +10,8 @@
   - [x] `def dashboard(request)->response`
   - [x] `path('', views.dashboard, name='dashboard')`
 - [ ] Startapp `todo`
+  - [x] add `todo/urls.py` to `urls.py`
   - [ ] design `todo/models.py`
+  - [x] register todo, todolist model to admins
   - [ ] build some simple text view
     - [ ] `path('todo/list/<int:list_id>', views.list, name='list')`

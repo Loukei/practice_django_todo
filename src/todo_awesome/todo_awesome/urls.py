@@ -20,5 +20,6 @@ from .views import dashboard
 urlpatterns = [
     # ex: http://127.0.0.1:8000/
     path('', dashboard, name="dashboard"),
+    path('todo/', include('todo.urls')),
     path('admin/', admin.site.urls),
 ]
