@@ -1,7 +1,7 @@
 - [x] Create mysite `todo_awesome`
 - [x] Create todo app
-- [ ] register todo app
-- [ ] Test project home page
+- [x] register todo app
+- [x] Test project home page
 - [ ] Craete a dashboard page
   - Show user's all todo list
   - [ ] `path('', views.dashboard, name='dashboard')`
