@@ -17,9 +17,13 @@
 <!-- if user has login, show user's todolist -->
 {% if user.is_authenticated %}
 <h2>Your todo lists.</h2>
-<ul>
-    <li>        </li>
-</ul>
+    {% if todo_lists %}
+        {% for list in todo_lists %}
+        <ul>
+            <li>{{ list }}</li>
+        </ul>
+        {% endfor %}
+    {% endif %}
 {% endif %}
 
 {% endblock %}

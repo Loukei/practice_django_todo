@@ -9,6 +9,9 @@ class TodoList(models.Model):
     """
     name = models.CharField(max_length=100,default="")
     describe = models.CharField(max_length=500,default="")
+    
+    def __str__(self) -> str:
+        return f"{self.name}, {self.describe}"
 
 
 class Todo(models.Model):
