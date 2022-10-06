@@ -97,6 +97,12 @@ ModelForm的
 
 - [使用基于类的视图处理表单 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/4.1/topics/class-based-views/generic-editing/#model-forms)
 
+## CreateView 不使用 template
+
+當View的行為作為API命令使用，類似"按下新增/修改/刪除等按鈕"的行為，預期的結果不是返回一個新的頁面，而是回應一個JSON之類的回覆的時候，View就不需要渲染頁面，更無須指定template
+
+- [Django CreateView without template rendering](https://copyprogramming.com/howto/django-how-to-create-view-function-without-template#django-how-to-create-view-function-without-template:~:text=template%20without%20model-,Django%20CreateView%20without%20template%20rendering,-Question%3A)
+
 ## Relate work
 
 - 基於`GET`與`POST`方法的實現
