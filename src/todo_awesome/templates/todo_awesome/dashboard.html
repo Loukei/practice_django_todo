@@ -20,7 +20,9 @@
     <form action="" method="post">
         <!-- TODO: a TodoList form to create new TodoList         
         -->
+        {% csrf_token %}
         {{todolistform}}
+        <button type="submit">Create new List</button>
     </form>
     {% if todo_lists %}
         {% for list in todo_lists %}

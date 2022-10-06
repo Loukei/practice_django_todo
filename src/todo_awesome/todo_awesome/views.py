@@ -7,6 +7,7 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Import todo app
 from todo.models import TodoList, Todo
+from todo.forms import TodoListForm
 
 # Create your views here.
 class DashboardView(LoginRequiredMixin, View):
@@ -18,7 +19,11 @@ class DashboardView(LoginRequiredMixin, View):
     http_method_names: List[str] = ["get"]
 
     def get(self, request:HttpRequest):
-        "Display user dashboard"
+        """
+        Display user dashboard
+        1. show all user's todolist
+        2. TODO add todolist form to context
+        """
         lists = TodoList.objects.all()
-        context:Dict = {'todo_lists': lists}
+        context:Dict = {'todo_lists': lists, 'todolistform': TodoListForm()}
         return render(request=request, template_name='todo_awesome/dashboard.html', context=context)

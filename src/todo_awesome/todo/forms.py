@@ -5,10 +5,10 @@ from .models import TodoList, Todo
 class TodoListForm(forms.ModelForm):
     class Meta:
         model = TodoList
-        fields = ('name','describe')
+        fields = ('name',)
         widgets = {
             'name': forms.TextInput(attrs={'class':'NAMECLASS'}),
-            'describe': forms.Textarea(attrs={'class':'DESCRIBECLASS'})
+            # 'describe': forms.Textarea(attrs={'class':'DESCRIBECLASS'})
         }
 
 class TodoForm(forms.Form):
