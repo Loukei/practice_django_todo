@@ -143,7 +143,7 @@ View: [DashboardView](#dashboardview)
 The main page for user
 
 **Request**
-GET localhost:8000/
+GET '{{BaseURL}}/'
 
 **Response** 
 
@@ -157,8 +157,13 @@ GET localhost:8000/
 
 ### TodoListCreateView
 
+Create a TodoList, Return client to '{{BaseURL}}/'
+
 **Request**
-- POST 'localhost:8000/todolists/create'
+
+POST '{{BaseURL}}/todolists/create'
+
+params
 
 **Response**
 
@@ -168,12 +173,21 @@ GET localhost:8000/
 
 ### TodoListListView
 
-- GET 'localhost:8000/todolists/list'
+Show all todolist relate to current user.
+
+GET '{{BaseURL}}/api/todolists/list'
 
 ### TodoListDetailView
 
-- GET 'localhost:8000/todolists/<int: listid>'
+Show detail about TodoList relate to current user.
+
+GET '{{BaseURL}}/todolists/<int: listid>'
 
 ### Todo ListView
 
-- GET 'localhost:8000/todos/list'
+Show all todos for current
+
+GET '{{BaseURL}}/todos/list'
+
+params:
+- 
