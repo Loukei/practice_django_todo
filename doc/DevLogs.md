@@ -103,6 +103,16 @@ ModelForm的
 
 - [Django CreateView without template rendering](https://copyprogramming.com/howto/django-how-to-create-view-function-without-template#django-how-to-create-view-function-without-template:~:text=template%20without%20model-,Django%20CreateView%20without%20template%20rendering,-Question%3A)
 
+## 一些頁面設計的資源
+
+- [W3Schools How TO - Code snippets for HTML, CSS and JavaScript](https://www.w3schools.com/howto/default.asp)
+- [W3.CSS Home](https://www.w3schools.com/w3css/default.asp)
+
+## UI: inline form
+
+#TODO
+- [How To Create a Responsive Inline Form With CSS](https://www.w3schools.com/HOWTO/howto_css_inline_form.asp)
+
 ## Relate work
 
 - 基於`GET`與`POST`方法的實現

@@ -1,36 +1,49 @@
 {% extends 'base.html' %}
 
+<!-- HTML head -->
 {% block html_head %}
 <title> Dashboard </title>
 {% endblock %}
 
-{% block html_body %}
-<h1> Dashboard </h1>
-
-<!-- Show user info if login -->
+<!-- Sidebar todolist lists: show user's todolist list -->
+{% block sidebar_todolist_lists %}
 {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}</p>
+{% if todo_lists %}
+{% for list in todo_lists %}
+<a href="#" class="w3-bar-item w3-button">{{ list }}</a>
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endblock %}
+
+<!-- Sidebar todolist create form: a form to create a todolist -->
+{% block sidebar_todolist_create_form %}
+{% if user.is_authenticated %}
+<form method="post" class="w3-bar-item">
+    <!-- TODO: a TodoList form to create new TodoList         
+    -->
+    {% csrf_token %}
+    {{todolistform}}
+    <button type="submit">Create new List</button>
+</form>
+{% endif %}
+{% endblock %}
+
+<!-- User Name -->
+{% block user_name_cotainer %}
+{% if user.is_authenticated %}
+<h1>Welcome, {{ user.username.upper }}</h1>
 {% else %}
-    <p>Please Login, Viister.</p>
+<h1>Please Login</h1>
 {% endif %}
+{% endblock %}
 
-{% if user.is_authenticated %}
-<!-- if user has login, show user's todolist -->
-<h2>Your todo lists here.</h2>
-    <form action="" method="post">
-        <!-- TODO: a TodoList form to create new TodoList         
-        -->
-        {% csrf_token %}
-        {{todolistform}}
-        <button type="submit">Create new List</button>
-    </form>
-    {% if todo_lists %}
-        {% for list in todo_lists %}
-        <ul>
-            <li>{{ list }}</li>
-        </ul>
-        {% endfor %}
-    {% endif %}
-{% endif %}
+<!-- Todolist detail and todos -->
+{% block todo_container %}
+<h1> Dashboard </h1>
+<!-- Todolist Detail Container -->
 
+<!-- Todolist create form -->
+<!-- Todolist todoitem list -->
+<!-- Todolist item detail -->
 {% endblock %}
