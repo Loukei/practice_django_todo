@@ -19,7 +19,7 @@
 <!-- Sidebar todolist create form: a form to create a todolist -->
 {% block sidebar_todolist_create_form %}
 {% if user.is_authenticated %}
-<form method="post" class="w3-bar-item">
+<form action="{% url 'create_todolist' %}" method="post" class="w3-bar-item">
     <!-- TODO: a TodoList form to create new TodoList         
     -->
     {% csrf_token %}

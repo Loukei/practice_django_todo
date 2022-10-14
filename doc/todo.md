@@ -14,7 +14,7 @@
   ~~- [x] `path('', views.dashboard, name='dashboard')`~~
 - [ ] Startapp `todo`
   - [x] add `todo/urls.py` to `urls.py`
-  - [ ] design `todo/models.py`
+  - [ ] design [`todo/models.py`](../src/todo_awesome/todo/models.py)
     - [ ] Todolist with user foreign key
   - [x] register todo, todolist model to admin
   - [ ] build some simple text view

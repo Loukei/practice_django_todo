@@ -1,3 +1,4 @@
+from email.policy import default
 from pydoc import describe
 from secrets import choice
 from typing import List, Tuple
@@ -9,6 +10,7 @@ class TodoList(models.Model):
     """
     name = models.CharField(max_length=100,default="")
     describe = models.TextField(max_length=500,default="")
+    # is_masterlist = models.BooleanField(default=False)
     
     def __str__(self) -> str:
         return f"{self.name}, {self.describe}"

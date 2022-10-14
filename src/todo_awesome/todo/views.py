@@ -1,9 +1,10 @@
-from typing import Type, Optional
-from django.shortcuts import render
-from django.http import Http404, HttpRequest, HttpResponse
-from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+from typing import Type, Optional, List, Any
+from django.shortcuts import render, redirect
+from django.http import Http404, HttpRequest, HttpResponse, HttpResponseRedirect
+from django.views.generic import View
 from django.template.loader import get_template
 from django.template import Template
+from django.urls import reverse as url_reverse
 from .models import TodoList, Todo
 from .forms import TodoListForm
 
@@ -16,6 +17,23 @@ def todo(request:HttpRequest):
     except Todo.DoesNotExist:
         raise Http404("Todo object not found")
     return HttpResponse(f"todo: {todo.__str__()}")
+
+class TodoListCreate(View):
+    """
+
+    Args:
+        View (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    http_method_names: List[str] = ["post"]
+
+    def post(self, request:HttpRequest):
+        form:TodoListForm = TodoListForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect(redirect_to=url_reverse(viewname='dashboard'))
 
 # class TodoListCreateView(CreateView):
 #     """
