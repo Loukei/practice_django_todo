@@ -10,7 +10,7 @@
 {% if user.is_authenticated %}
 {% if todo_lists %}
 {% for list in todo_lists %}
-<a href="#" class="w3-bar-item w3-button">{{ list }}</a>
+<a href="{% url 'search_todolist' listid=list.pk %}" class="w3-bar-item w3-button">{{ list }}</a>
 {% endfor %}
 {% endif %}
 {% endif %}
@@ -40,7 +40,22 @@
 
 <!-- Todolist detail and todos -->
 {% block todo_container %}
-<h1> Dashboard </h1>
+
+<!--Show todolist name in title-->
+<div class="w3-bar w3-light-grey">
+    {% if current_list %}
+    <label class="w3-bar-item">{{current_list.name}}</label>
+    {% else %}
+    <label class="w3-bar-item"> Dashboard </label>
+    {% endif %}
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Edit List...</button>
+        <div class="w3-dropdown-content w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">Rename List</a>
+        <a href="#" class="w3-bar-item w3-button">Delete List</a>
+        </div>
+    </div>
+</div>
 <!-- Todolist Detail Container -->
 
 <!-- Todolist create form -->

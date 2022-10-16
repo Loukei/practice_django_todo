@@ -22,7 +22,7 @@ class DashboardView(LoginRequiredMixin, View):
         """
         Display user dashboard
         1. show all user's todolist
-        2. TODO add todolist form to context
+        2. add todolist form to context
         """
         lists = TodoList.objects.all()
         context:Dict = {'todo_lists': lists, 'todolistform': TodoListForm()}

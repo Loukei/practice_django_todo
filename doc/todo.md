@@ -17,5 +17,3 @@
   - [ ] design [`todo/models.py`](../src/todo_awesome/todo/models.py)
     - [ ] Todolist with user foreign key
   - [x] register todo, todolist model to admin
-  - [ ] build some simple text view
-    - [ ] `path('todo/list/<int:list_id>', views.list, name='list')`

@@ -9,7 +9,7 @@
     <body>
         <!-- Sidebar for user todolist list -->
         <div class="w3-sidebar w3-bar-block" style="width:25%">
-            <h3>Home</h3>
+            <h3><a href="{% url 'dashboard' %}">Home</a></h3>
             {% block sidebar_todolist_lists %}
             {% endblock %}
 

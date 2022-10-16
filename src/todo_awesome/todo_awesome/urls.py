@@ -20,6 +20,6 @@ from .views import DashboardView
 urlpatterns = [
     # ex: http://127.0.0.1:8000/
     path('', DashboardView.as_view(), name="dashboard"),
-    path('api/', include('todo.urls')),
+    path('tasks/', include('todo.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -110,11 +110,28 @@ ModelForm的
 
 ## UI: inline form
 
+在新增Todolist時的表單按鈕希望是`<input>`與`<button>`平行，而非垂直
+
 #TODO
 - [How To Create a Responsive Inline Form With CSS](https://www.w3schools.com/HOWTO/howto_css_inline_form.asp)
+
+## User拜訪權限控制
+
+[TodoListDetailView](src\todo_awesome\todo\views.py)用來繪製User的`Todolist`詳細內容，但是拜訪這些內容需要
+1. User以登入
+2. User具有對該筆資料拜訪的權限
+
+- [django权限管理(Permission) - 程序员同行者 - 博客园](https://www.cnblogs.com/guigujun/p/9176519.html)
+- [使用 Django 的验证系统 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/4.1/topics/auth/default/#the-permissionrequiredmixin-mixin)
+
+## Icon 素材
+
+- [Remix Icon - Open source icon library](https://remixicon.com/)
 
 ## Relate work
 
 - 基於`GET`與`POST`方法的實現
   - [Manage Your To-Do Lists Using Python and Django – Real Python](https://realpython.com/django-todo-lists/#step-4-add-your-sample-to-do-data)
   - [Develop a Simple Python Django ToDo App in 1 minute - DEV Community 👩‍💻👨‍💻](https://dev.to/nditah/develop-a-simple-python-django-todo-app-in-1-minute-4908)
+- 不使用REST Framework來嘗試API開發
+  - [Building Django API Views Without Django Rest Framework | by Jordan P. Raychev | Geek Culture | Medium](https://medium.com/geekculture/building-django-api-views-without-django-rest-framework-4fa9883de0a8)

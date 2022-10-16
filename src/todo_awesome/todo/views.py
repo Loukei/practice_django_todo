@@ -1,9 +1,11 @@
-from typing import Type, Optional, List, Any
+from typing import Type, Optional, List, Any, Dict
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpRequest, HttpResponse, HttpResponseRedirect
 from django.views.generic import View
-from django.template.loader import get_template
-from django.template import Template
+# from django.template.loader import get_template
+# from django.template import Template
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView as auth_LoginView
 from django.urls import reverse as url_reverse
 from .models import TodoList, Todo
 from .forms import TodoListForm
@@ -20,7 +22,9 @@ def todo(request:HttpRequest):
 
 class TodoListCreate(View):
     """
-
+    Create User's todolist, than return to {DashboardView}
+    
+    trigger by {dashboard.html sidebar_todolist_create_form}
     Args:
         View (_type_): _description_
 
@@ -32,31 +36,24 @@ class TodoListCreate(View):
     def post(self, request:HttpRequest):
         form:TodoListForm = TodoListForm(request.POST)
         if form.is_valid():
-            form.save()
+            list:TodoList = form.save()
         return HttpResponseRedirect(redirect_to=url_reverse(viewname='dashboard'))
 
-# class TodoListCreateView(CreateView):
-#     """
-#     An API accept client command to create a todo list
-#     ---
-#     Model: TodoList
-#     template_name
-#     ---
-#     ## Input
-#     Endpoint: "user/<int:userid>/CreateTodoList"
-#     Method: POST
-#     Trigger by: User DashboardView, when user click "add new List" button
-#     ---
-#     ## Response
-#     - 200 ok
-#     """
-#     model: Type[models.Model] = TodoList
-#     template_name: str = ''
-#     form_class: Optional[Type[BaseForm]] = TodoListForm
+class TodoListDetail(LoginRequiredMixin, View):
+    login_url: Any = 'admin/login/'
+    redirect_field_name:str = 'redirect_to'
+    http_method_names: List[str] = ['get']
 
-#     def get_success_url(self) -> str:
-#         "TODO: redirect user to dashboard"
-#         return super().get_success_url()
+    def get(self, request:HttpRequest, listid:int)->HttpResponse:
+        """
+        If client is authenticated and has autheraction to listid, get todolist(listid)
+        Return Dashboard.html with todolist
+        """
+        current_list:TodoList = TodoList.objects.get(pk=listid)
+        lists = TodoList.objects.all()
+        context:Dict = {'todo_lists': lists, 'todolistform': TodoListForm(), "current_list":current_list}
+        return render(request=request,template_name='todo_awesome/dashboard.html',context=context)
+
 
 # class TodoListListView(ListView):
 #     """
